@@ -1,0 +1,23 @@
+{
+  "name": "automaticmailingapp",
+  "version": "1.0.0",
+  "description": "A automatic vacation email sender",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akash-M1/AutomaticMailingApp.git"
+  },
+  "author": "AkashM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Akash-M1/AutomaticMailingApp/issues"
+  },
+  "homepage": "https://github.com/Akash-M1/AutomaticMailingApp#readme",
+  "dependencies": {
+    "google-auth-library": "^8.7.0",
+    "googleapis": "^111.0.0"
+  }
+}
