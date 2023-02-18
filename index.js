@@ -1,15 +1,15 @@
 const { google } = require('googleapis');
 const { OAuth2Client } = require('google-auth-library');
 
-const clientID = '661830396778-8uvln529vupnmfe2k0m4j8a9s7avn3m7.apps.googleusercontent.com';
-const clientSecret = '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';
+const clientID = '661830396778-8uvls7avn3m7.apps.googleusercontent.com';
+const clientSecret = 'GOCSPX-BDlKpR1ccpUGhV768l';
 const redirectURI = 'http://localhost:3000/oauth2callback';
 const oAuth2Client = new OAuth2Client(clientID, clientSecret, redirectURI);
 
 // Authenticate with Google and get access token
 async function authorize() {
     oAuth2Client.setCredentials({
-        refresh_token: '1//0gYu4CIeQIoBkCgYIARAAGBASNwF-L9IrPLRkQWFJMAME98QXAmQgvHkYKbIau_wh6AwxJHlhWiETFNSluqR1euPWAhIKuLn_s2M'
+        refresh_token: '1//0gYu4C-L9IrPLRkQWFJMAME98QXAmQgvHkYKbIau_wh6AwxJHlhWiETFNSluqR1euPWAhIKuLn_s2M'
     });
     
     const access_token = await oAuth2Client.getAccessToken();
@@ -47,7 +47,7 @@ async function filterEmails(messages) {
 async function sendReply(email) {
     const gmail = google.gmail({ version: 'v1', auth: oAuth2Client });
     const message = `Hello Guys I am on Vacation will reply to you as soon as I return: ${email.subject}`;
-    const raw = Buffer.from(`From: "Akash M" <akashm.cs20@bmsce.ac.in>\nTo: ${email.from}\nSubject: Re: ${email.subject}\n\n${message}`).toString('base64').replace(/\+/g, '-').replace(/\//g, '_');
+    const raw = Buffer.from(`From: "Akash M" <akashm.cs20@bmsce.ac.in>\nTo: ${email.from}\nSubject: Re: ${email.subject}\n\n${message}`).toString('base64');
     const res = await gmail.users.messages.send({ userId: 'me', resource: { raw } });
     console.log(`Sent reply to email with subject: ${email.subject}`);
     return res.data;
